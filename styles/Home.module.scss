@@ -1,0 +1,376 @@
+//TODO: convert entire document to SCSS
+
+.container {
+  padding: 0 0;
+  width: 100%;
+  .main {
+    padding:0 0 4rem 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .topContainer{
+    position: relative;
+    margin: auto;
+    width: 963px;
+  }
+}
+
+
+
+
+
+.topHeading {
+  position: absolute;
+  z-index: 2;
+  font-family:"Univers LT Std 65 Bold";
+  top: 30px;
+  right: 60px;
+  font-size : 52px;
+  color: white;
+  text-transform: uppercase;
+  width: 510px;
+  font-weight: 100;
+  line-height: 48px;
+}
+.jtest{
+  z-index: 1;
+  margin: auto;
+  padding: 0;
+  width: 963px;
+  height: 453px;
+}
+
+.topSecondaryHeading{
+  position: absolute;
+  font-family:"Univers LT Std 65 Bold";
+  z-index: 2;
+  top: 160px;
+  width: 430px;
+  right: 90px;
+  color: white;
+  font-size: 32px;
+  font-weight: 100;
+  line-height: 34px;
+}
+
+
+.topDescription{
+  position: absolute;
+  font-family:"Univers LT Std 45 Light";
+  z-index: 2;
+  top: 260px;
+  width: 390px;
+  right: 130px;
+  color: white;
+  font-size: 17px;
+  font-weight: 100;
+  line-height: 24px;
+
+}
+
+
+
+.getStartedButton {
+  font-family: 'Univers LT Std 45 Light';
+  font-size: 12pt;
+  font-weight: 100;
+  padding: 4px;
+  text-transform: uppercase;
+  color: white;
+  background-color: black;
+  border:none;
+  padding: .65rem 1.25rem;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+}
+
+.ourWork{
+  padding: 30px 0;
+  display: flex;
+  width: 85%;
+  margin: auto;
+  justify-content: space-between;
+}
+
+.ourWorkText{
+  padding-top: 20px;
+}
+.ourWorkText p{
+  font-family:"Univers LT Std 65 Bold";
+  font-size: 42px;
+  font-weight: 100;
+  text-transform: uppercase;
+  margin: 12px;
+}
+
+
+//heisman div styles -- consolidate to scss
+.heisman {
+  margin: auto;
+  width: 879px;
+  position: relative;
+}
+.heismanText{
+  position: absolute;
+  top: 0;
+  color: white;
+  left: 30px;
+  margin: 0;
+  padding: 0;
+}
+.heismanText h2{
+  z-index: 2;
+  font-family:"Univers LT Std 65 Bold";
+  font-size : 52px;
+  color: white;
+  text-transform: uppercase;
+  width: 400px;
+  font-weight: 100;
+  line-height: 48px;
+  margin: 40px 0;
+}
+.heismanText p{
+  margin: 0 0 25px 0;
+  width: 450px;
+  font-family:  'Univers LT Std 45 Light';
+  font-weight: 100;
+  font-size: 17px;
+  line-height: 24px;
+  hyphens: auto;
+}
+
+// expertise div styles
+.expertise{
+  margin: 50px auto 0;
+  display:flex;
+  width: 820px;
+  justify-content: space-between;
+  .expertiseText{
+    width: 390px;
+    justify-content: center;
+    align-self: center;
+    h2 {
+      font-family: "Univers LT Std 65 Bold";
+      font-size: 32px;
+      font-weight: 100;
+    }
+    p {
+      font-family:  'Univers LT Std 45 Light';
+      font-weight: 100;
+      font-size: 17px;
+      line-height: 24px;
+      hyphens: auto;
+    }
+    button{
+      font-family: 'Univers LT Std 45 Light';
+      font-size: 12pt;
+      font-weight: 100;
+      text-transform: uppercase;
+      color: white;
+      background-color: black;
+      border:none;
+      padding: .65rem 1.25rem;
+      float: right;
+      right: 10px;
+    }
+  }
+}
+
+//honor div styles
+.honor{
+  position: relative;
+  width: 981px;
+  margin: auto;
+  .honorText{
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    p{
+      font-family:  'Univers LT Std 45 Light';
+      font-weight: 100;
+      font-size: 17px;
+      line-height: 24px;
+      color: white;
+      width: 450px;
+    }
+    h2 {
+      margin: 0;
+      font-family: "Univers LT Std 65 Bold";
+      font-size: 68px;
+      font-weight: 100;
+      color: white;
+      text-transform: uppercase;
+      width: 300px;
+      line-height: 64px;
+    }
+  }
+}
+
+//Know-how Div Styles 
+.knowHow{
+  display: flex;
+  width: 860px;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+  .knowHowText{
+    width: 470px;
+    h2{
+      margin: 0;
+      font-family: "Univers LT Std 65 Bold";
+      font-size: 68px;
+      font-weight: 100;
+      text-transform: uppercase;
+      line-height: 64px;
+    }
+    p {
+      font-family:  'Univers LT Std 45 Light';
+      font-weight: 100;
+      font-size: 17px;
+      line-height: 24px;
+      width: 375px;
+      z-index: 2;
+    }
+    button{
+      float: right;
+      z-index: 1;
+      margin-top: -35px;
+      background-color: transparent;
+      border: none;
+    }
+  }
+}
+
+
+// precision div styles
+
+.precision{
+  position: relative;
+  margin: auto;
+  width: 873px;
+  .precisionText{
+    position: absolute;
+    top: 35px;
+    left: 50px;
+    p{
+      font-family:  'Univers LT Std 45 Light';
+      font-weight: 100;
+      font-size: 17px;
+      line-height: 24px;
+      color: white;
+      width: 375px;
+    }
+    h2{
+      margin: 10px 0 0 0;
+      font-family: "Univers LT Std 65 Bold";
+      font-size: 32px;
+      font-weight: 100;
+      color: white;
+    }
+
+  }
+
+}
+.buttonImage{
+  border: none;
+  background-color:transparent;
+}
+// Beauty Div Styles
+.beauty{
+  margin: 50px auto;
+  display: flex;
+  width: 875px;
+  justify-content: space-between;
+  .beautyText{
+    justify-content: center;
+    align-self: center;
+    h2 {
+      font-family: "Univers LT Std 65 Bold";
+      font-size: 32px;
+      font-weight: 100;
+      margin: 0 0 0 50px;
+      width: 429px;
+    }
+    p {
+      font-family:  'Univers LT Std 45 Light';
+      font-weight: 100;
+      font-size: 17px;
+      line-height: 24px;
+      hyphens: auto;
+      margin: 20px 0 20px 50px;
+      width: 429px;
+    }
+    button{
+      font-family: 'Univers LT Std 45 Light';
+      font-size: 12pt;
+      font-weight: 100;
+      text-transform: uppercase;
+      color: white;
+      background-color: black;
+      border:none;
+      padding: .65rem 1.25rem;
+      float: right;
+      margin-right: 50px;
+    }
+    h3{
+      font-family: "Univers LT Std 65 Bold";
+      font-size: 30px;
+      font-weight: 100;
+      text-align: right;
+      margin-right: 35px;
+    }
+  }
+}
+
+.mainContainer {
+  max-width: 1080px;
+  width: 1080px;
+  margin: auto;
+}
+.footercontainer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.formWrapper{
+  position: relative;
+  width: 950px;
+  margin: auto;
+  h2{
+    position: absolute;
+    color: white;
+    font-size: 68px;
+    font-weight: 100;
+    text-transform: uppercase;
+    line-height: 64px;
+    left: 350px;
+    top: 0px;
+    z-index: 10;
+    font-family: "Univers LT Std 65 Bold";
+  }
+  h3 {
+    position: absolute;
+    font-family: "Univers LT Std 65 Bold";
+    font-weight: 100;
+    color: white;
+    z-index: 10;
+    top: 260px;
+    left: 350px;
+    z-index: 10;
+    width: 475px;
+    font-size: 32px;
+  }
+  .formText{
+    margin-left: 340px;
+  }
+  .formImage{
+    position: absolute;
+    z-index:2;
+  }
+}

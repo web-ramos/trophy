@@ -1,0 +1,100 @@
+.footercontainer {
+    max-width: 1080px;
+    margin: auto;
+    display: flex;
+  }
+
+.footer{
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+.footercolright{
+  padding-top: 2rem;
+  display: flex;
+  flex-grow: 0;
+  align-items: flex-end;
+  flex-direction: column;
+  max-width: 33%;
+  margin: 0 0 0 auto;
+  justify-content: flex-start;
+}
+.footercolLeft{
+  padding-top: 2rem;
+  display: flex;
+  flex-grow: 0;
+  align-items: flex-start;
+  flex-direction: column;
+  max-width: 33%;
+  margin: 0 0;
+  justify-content: flex-start;
+}
+.footercol{
+  padding-top: 2rem;
+  display: flex;
+  flex-grow: 0;
+  align-items: flex-start;
+  flex-direction: column;
+  max-width: 33%;
+  margin: 0 0 0 5rem;
+  justify-content: flex-start;
+}
+.copyright{
+  width: 100%;
+  max-width:100%;
+  margin-top: 1.5em;
+  margin: auto;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Univers LT Std 65 Bold';
+  font-size: 9pt;
+  letter-spacing: 0.09rem;
+  padding: 5rem 0 2rem 0;
+  
+}
+.footerlinks{
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Univers LT Std 45 Light';
+  font-size: 10pt;
+  text-transform: uppercase;
+  padding: .75rem 0;
+  letter-spacing: 0.02px;
+}
+
+.footerText{
+  font-family: 'Univers LT Std 45 Light';
+  font-size: 11pt;
+  text-align: right;
+  margin-top: 0.75rem;
+}
+.footerColHeader{
+  font-family: 'Univers LT Std 65 Bold';
+  font-size: 22pt;
+  margin: 0 0 0.5rem 0;
+  align-items:flex-start;
+  text-transform: uppercase;
+}
+
+.footerUl{
+  padding: 0;
+  margin: 0rem 0;
+}
+
+.footerButton {
+  text-transform: uppercase;
+  font-family: 'Univers LT Std 45 Light';
+  font-size: 12pt;
+  border-radius: 0px;
+  background-color: white;
+  line-height: 24px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  padding: .45rem 1.25rem;
+  border: none;
+  float: inline-end;
+}
+
+.footerImage{
+  padding-top: 0.4rem;
+}

@@ -1,0 +1,22 @@
+.footercontainer {
+    background-color: black;
+    color: white;
+    display: flex;
+    flex: 1;
+    padding: 2rem 0;
+    border-top: 1px solid #eaeaea;
+    justify-content: center;
+    align-items: center;
+    font-family:"Univers LT Std 65 Bold";
+    letter-spacing: 0.09rem;
+    text-transform:uppercase;
+    font-size: 7px;
+  }
+  
+  .footercontainer a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  }
+  
