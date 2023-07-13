@@ -1,23 +1,28 @@
-.main {
-  margin: auto;
-  display: block;
-  width: 1080px;
-  h1 {
-    font-family: "Univers LT Std 65 Bold";
-    font-weight: 100;
-    font-size: 52px;
-    line-height: 48px;
-    text-transform: uppercase;
-  }
-  h2 {
-    font-family: "Univers LT Std 65 Bold";
-    font-weight: 100;
-  }
-  p {
-    font-family: "Univers LT Std 45 Light";
-    font-weight: 100;
-    font-size: 17px;
-    line-height: 24px;
+.container {
+  padding: 0 0;
+  width: 100%;
+
+  .main {
+    margin: auto;
+    display: block;
+    width: 1080px;
+    h1 {
+      font-family: "Univers LT Std 65 Bold";
+      font-weight: 100;
+      font-size: 52px;
+      line-height: 48px;
+      text-transform: uppercase;
+    }
+    h2 {
+      font-family: "Univers LT Std 65 Bold";
+      font-weight: 100;
+    }
+    p {
+      font-family: "Univers LT Std 45 Light";
+      font-weight: 100;
+      font-size: 17px;
+      line-height: 24px;
+    }
   }
 }
 

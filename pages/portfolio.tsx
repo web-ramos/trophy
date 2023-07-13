@@ -9,7 +9,7 @@ import Link from "next/link";
 
 const Portfolio: NextPage = () => {
   return (
-    <div>
+    <div className={styles.container}>
       <Head>
         <title>Bespoke Awards and Trophies Gallery | Modern Trophy</title>
         <meta
