@@ -2,8 +2,8 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
 import Form from "../components/Form";
 import Link from "next/link";
 

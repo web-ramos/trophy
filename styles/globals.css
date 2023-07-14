@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-size: 16px;
 }
 
 a {
@@ -40,4 +41,3 @@ a {
   font-family: 'Univers LT Std 65 Bold';
   src: url('../public/fonts/Univers LT Std 65 Bold.otf');
 }
-
