@@ -9,7 +9,7 @@ import Link from "next/link";
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Corporate Awards and Trophies Made Better | Modern Trophy</title>
         <meta
@@ -21,248 +21,245 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <main className={styles.main}>
-        <div className={styles.mainContainer}>
-          <div className={styles.topContainer}>
-            <Image
-              className={styles.jtest}
-              src="/hero-image.png"
-              width='963'
-              height='453'
-              alt=""
-            />
-            <h1 className={styles.topHeading}>
-              Trophies worthy of your brand{" "}
+        <section className={styles.banner}>
+          <div className={styles.banner__container}>
+            <div className={styles.banner__imageWrapper}>
               <Image
-                className={styles.footerImage}
-                src="/triangle.png"
-                width={"16"}
-                height={"16"}
+                className={styles.jtest}
+                src="/hero-image.png"
+                fill
                 alt=""
               />
-            </h1>
-            <p className={styles.topSecondaryHeading}>
-              M/T handles the fine details to deliver on your vision
-            </p>
-            <p className={styles.topDescription}>
-              Whether you run a massive corporate recognition program or are
-              awarding a single valued employee, you are in good hands with
-              Modern Trophy as your custom awards partner.
-            </p>
-            <Link href="/#form" passHref>
-              <button className={styles.getStartedButton}> Get Started </button>
-            </Link>
-          </div>
-          <div className={styles.ourWork}>
-            <div className={styles.ourWorkText}>
-              <p>
-                Iconic Designs{" "}
-                <Image
-                  className={styles.blackTriangle}
-                  src="/blackTriangle.png"
-                  width={"16"}
-                  height={"16"}
-                  alt=""
-                ></Image>
-              </p>
-              <p>
-                Precision Crafted{" "}
-                <Image
-                  className={styles.blackTriangle}
-                  src="/blackTriangle.png"
-                  width={"16"}
-                  height={"16"}
-                  alt=""
-                ></Image>
-              </p>
-              <p>
-                Expert Service{" "}
-                <Image
-                  className={styles.blackTriangle}
-                  src="/blackTriangle.png"
-                  width={"16"}
-                  height={"16"}
-                  alt=""
-                />
-              </p>
             </div>
-            <Link href="/portfolio" passHref>
-              <button className={styles.buttonImage}>
-                <Image
-                  src="/see-our-work.png"
-                  width={"250"}
-                  height={"251"}
-                  alt=""
-                />
-              </button>
+            <div className={styles.banner__textWrapper}>
+              <h1 className={styles.banner__title}>
+                Trophies worthy of your brand &nbsp;
+              </h1>
+              <h2 className={styles.banner__subtitle}>
+                M/T handles the fine details to deliver on your vision
+              </h2>
+              <p className={styles.banner__description}>
+                Whether you run a massive corporate recognition program or are
+                awarding a single valued employee, you are in good hands with
+                Modern Trophy as your custom awards partner.
+              </p>
+              <Link href="/#form" className={styles.banner__action} passHref>
+                <button>Get Started</button>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.ourWork}>
+          <div className={styles.ourWork__container}>
+            <ul className={styles.ourWork__list}>
+              <li className={styles.ourWork__item}>Iconic Designs&nbsp;</li>
+              <li className={styles.ourWork__item}>Precision Crafted&nbsp;</li>
+              <li className={styles.ourWork__item}>Expert Service&nbsp;</li>
+            </ul>
+            <Link href="/portfolio" className={styles.ourWork__link} passHref>
+              <Image
+                src="/see-our-work.png"
+                width={"250"}
+                height={"251"}
+                alt=""
+              />
             </Link>
           </div>
-          <div className={styles.heisman}>
-            <Image
-              className={styles.test}
-              src="/yourDesign.png"
-              width={"879"}
-              height={"435"}
-              alt=""
-            />
-            <div className={styles.heismanText}>
-              <h2 className="heismanText">
-                Your design made real{" "}
-                <Image
-                  className={styles.footerImage}
-                  src="/triangle.png"
-                  width={"16"}
-                  height={"16"}
-                  alt=""
-                />
-              </h2>
-              <p className="heismanText">
+        </section>
+
+        <section className={styles.heisMan}>
+          <div className={styles.heisMan__container}>
+            <div className={styles.heisMan__imageWrapper}>
+              <Image src="/yourDesign.png" fill alt="He is man image" />
+            </div>
+            <div className={styles.heisMan__textWrapper}>
+              <h2 className={styles.heisMan__title}>Your design made real </h2>
+              <p className={styles.heisMan__text}>
                 Your friendly account manager will lead you through a process
                 designed to uncover the best design, materials and
                 personalization for your program.
               </p>
-              <p className="heismanText">
+              <p className={styles.heisMan__text}>
                 Our in-house design studio uses this feedback — including
                 preferred visual styles and budget — to create a trophy that
                 embodies your brand and impresses your team.
               </p>
             </div>
           </div>
-          <div className={styles.expertise}>
-            <Image src="/expertise.png" width={"360"} height={"327"} alt="" />
-            <div className={styles.expertiseText}>
-              <h2>The result of expertise</h2>
-              <p>
+        </section>
+
+        <section className={styles.expertise}>
+          <div className={styles.expertise__container}>
+            <div className={styles.expertise__imageWrapper}>
+              <Image
+                src="/expertise.png"
+                width={"360"}
+                height={"327"}
+                alt="Expertise"
+              />
+            </div>
+
+            <div className={styles.expertise__textWrapper}>
+              <h2 className={styles.expertise__title}>
+                The result of expertise
+              </h2>
+              <p className={styles.expertise__text}>
                 Whether you have a clear vision of the trophy you want or you
                 need help from our skilled designers, Modern Trophy is here to
                 impress you with an exceptional result. That&apos;s because we
                 have the benefit of experience and a team that can&apos;t be
                 beat.
               </p>
-              <Link href="mailto: jared.melkun@gmail.com" passHref>
-              <button>Email Us</button></Link>
+              <Link
+                href={`mailto: ${process.env.NEXT_PUBLIC_EMAIL}`}
+                passHref
+                className={styles.expertise__link}
+              >
+                <button>Email Us</button>
+              </Link>
             </div>
           </div>
-          <div className={styles.honor}>
-            <Image
-              src="/a-fitting-honor.png"
-              width={"981"}
-              height={"616"}
-              alt=""
-            />
-            <div className={styles.honorText}>
-              <h2>
-                A Fitting Honor{" "}
-                <Image
-                  className={styles.blackTriangle}
-                  src="/triangle.png"
-                  width={"16"}
-                  height={"16"}
-                  alt=""
-                />
-              </h2>
-              <p>
+        </section>
+
+        <section className={styles.honor}>
+          <div className={styles.honor__container}>
+            <div className={styles.honor__imageWrapper}>
+              <Image src="/a-fitting-honor.png" fill alt="Fitting honor" />
+            </div>
+            <div className={styles.honor__textWrapper}>
+              <h2 className={styles.honor__title}>A Fitting Honor </h2>
+              <p className={styles.honor__text}>
                 Modern Trophy delivers exceptional custom awards that honor your
                 brand, honor your recipient and most importantly, honor your
-                time.{" "}
+                time.
               </p>
-              <p>
+              <p className={styles.honor__text}>
                 Our mission is to surprise and delight recipients through
                 precision craftspersonship and world-class design.
               </p>
             </div>
           </div>
-          <div className={styles.knowHow} id="brand">
-            <Image src="/know-how.png" width={"340"} height={"488"} alt="" />
-            <div className={styles.knowHowText}>
-              <h2>
+        </section>
+
+        <section className={styles.knowHow} id="brand">
+          <div className={styles.knowHow__container}>
+            <div className={styles.knowHow__imageWrapper}>
+              <Image src="/know-how.png" width={"340"} height={"488"} alt="" />
+            </div>
+            <div className={styles.knowHow__textWrapper}>
+              <h2 className={styles.knowHow__title}>
                 The
                 <br /> Know-How{" "}
-                <Image
-                  className={styles.blackTriangle}
-                  src="/blackTriangle.png"
-                  width={"16"}
-                  height={"16"}
-                  alt=""
-                />
               </h2>
-              <p>
+              <p className={styles.knowHow__text}>
                 We&apos;ve worked with hundreds of custom awards clients and we
                 specialize in delivering trophies that surprise, delight and
                 honor recipients and brands they represent.
               </p>
-              <p>See how we get your awards done right.</p>
-              <Link href="/#form" passHref>
-              <button className={styles.knowHowButton}>
+              <p className={styles.knowHow__text}>
+                See how we get your awards done right.
+              </p>
+              <Link href="/#form" passHref className={styles.knowHow__link}>
                 <Image
                   src="/start-a-trophy.png"
                   width={"324"}
                   height={"129"}
                   alt=""
                 />
-              </button></Link>
+              </Link>
             </div>
           </div>
-          <div className={styles.precision}>
-            <Image src="/precision.png" width={"873"} height={"391"} alt="" />
-            <div className={styles.precisionText}>
-              <h2>Precision crafted</h2>
-              <p>
+        </section>
+
+        <section className={styles.precision}>
+          <div className={styles.precision__container}>
+            <div className={styles.precision__imageWrapper}>
+              <Image src="/precision.png" fill alt="Precision image" />
+            </div>
+            <div className={styles.precision__textWrapper}>
+              <h2 className={styles.precision__title}>Precision crafted</h2>
+              <p className={styles.precision__text}>
                 Modern Trophy delivers custom awards with precision and care.
                 Our designers use your vision and requirements to produce
                 photorealistic renderings. This allows you to visualize the
                 finished product before it is crafted.
               </p>
-              <p>
+              <p className={styles.precision__text}>
                 Importantly, we balance design excellence and visual impact with
                 an eye towards production feasibility and structural integrity.
               </p>
             </div>
           </div>
-          <div className={styles.beauty}>
-            <Image src="/beauty.png" width={"340"} height={"427"} alt="" />
-            <div className={styles.beautyText}>
-              <h2>Beauty in the details</h2>
-              <p>
+        </section>
+
+        <div className={styles.beauty}>
+          <div className={styles.beauty__container}>
+            <div className={styles.beauty__imageWrapper}>
+              <Image
+                src="/beauty.png"
+                width={"340"}
+                height={"427"}
+                alt="Beauty in the details image"
+              />
+            </div>
+            <div className={styles.beauty__textWrapper}>
+              <h2 className={styles.beauty__title}>Beauty in the details</h2>
+              <p className={styles.beauty__text}>
                 The awards design process starts when you call one of our
                 friendly account managers. These valued team members are trained
                 experts in custom trophy design.
               </p>
-              <p>
+              <p className={styles.beauty__text}>
                 We figure out the perfect awards for your program based on all
                 the subtle details that make your brand meaningful and unique.
                 We have expertise in all trophy materials including metal,
                 crystal, glass, resin, 3D printing and a wide range of finishes.
               </p>
-              <h3>
+              <h3 className={styles.beauty__subtitle}>
                 At Modern Trophy we honor your brand, your honoree and your time
               </h3>
-              <Link href="mailto: jared.melkun@gmail.com" passHref><button>Email Us</button></Link>
+              <Link
+                href={`mailto: ${process.env.NEXT_PUBLIC_EMAIL}`}
+                passHref
+                className={styles.beauty__link}
+              >
+                <button>Email Us</button>
+              </Link>
             </div>
           </div>
-          <div className={styles.formWrapper} id="form">
-            <Image
-              className={styles.formImage}
-              src="/form-background.png"
-              width={"919"}
-              height={"437"}
-              alt=""
+        </div>
 
-            />
-            <h2>
-              Deliver <br /> for
-              <br />
-              your team.
-            </h2>
-            <h3>
-              Our process of custom trophy design is optimized to make you look
-              good.
-            </h3>
-            <Form />
-          </div>
+        <div className={styles.formWrapper} id="form">
+          <section className={styles.bottomBanner}>
+            <div className={styles.bottomBanner__container}>
+              <div className={styles.bottomBanner__imageWrapper}>
+                <Image
+                  className={styles.formImage}
+                  src="/form-background.png"
+                  fill
+                  alt="Deliver for your team image"
+                />
+              </div>
+              <div className={styles.bottomBanner__textWrapper}>
+                <h2 className={styles.bottomBanner__title}>
+                  Deliver <br /> for
+                  <br />
+                  your team.
+                </h2>
+                <h3 className={styles.bottomBanner__subtitle}>
+                  Our process of custom trophy design is optimized to make you
+                  look good.
+                </h3>
+              </div>
+            </div>
+          </section>
+
+          <Form />
         </div>
       </main>
       <Footer />
-    </div>
+    </>
   );
 };
 

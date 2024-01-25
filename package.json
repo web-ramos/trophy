@@ -2,6 +2,7 @@
   "name": "trophy",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -11,7 +12,10 @@
   "dependencies": {
     "next": "^13.4.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.49.3",
+    "winston": "^3.11.0",
+    "yup": "^1.3.3"
   },
   "devDependencies": {
     "@types/node": "18.11.2",

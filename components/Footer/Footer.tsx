@@ -13,7 +13,7 @@ const Footer = () => {
               src="/ModernTrophy-Logo-Footer.svg"
               width={"168"}
               height={"93"}
-              alt=""
+              alt="Logo"
             />
           </div>
         </div>
@@ -21,13 +21,6 @@ const Footer = () => {
         <nav className={styles.footercol} aria-label="Footer">
           <p className={styles.footerColHeader}>
             Site Menu&nbsp;
-            <Image
-              className={styles.footerImage}
-              src="/triangle.svg"
-              width={"20"}
-              height={"20"}
-              alt=""
-            />
           </p>
           <ul className={styles.footerUl}>
             <Link href="/portfolio#custom">
@@ -42,23 +35,15 @@ const Footer = () => {
           </ul>
         </nav>
         <div className={styles.footercolright}>
-          <div>
-            <div>
-              <p className={styles.footerColHeader}>
-                Contact
-                <Image
-                  className={styles.footerImage}
-                  src="/triangle.svg"
-                  width={"20"}
-                  height={"20"}
-                  alt=""
-                />
-              </p>
-              <Link href="mailto:jared.melkun@gmail.com">
-                <button className={styles.footerButton}>Email Us</button>
-              </Link>
-            </div>
-          </div>
+          <p className={styles.footerColHeader}>
+            Contact
+          </p>
+          <Link
+            href={`mailto: ${process.env.NEXT_PUBLIC_EMAIL}`}
+            className={styles.footerButtonLink}
+          >
+            <button className={styles.footerButton}>Email Us</button>
+          </Link>
           <p className={styles.footerText}>
             Our team of awards professionals is available weekdays 9am - 6pm ET
           </p>

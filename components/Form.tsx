@@ -1,161 +1,317 @@
 import Image from "next/image";
 import styles from "../styles/form.module.scss";
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
+import { useForm, SubmitHandler } from "react-hook-form";
+
+type Range = {
+  label: string;
+  value: string;
+};
+
+const ranges: Range[] = [
+  {
+    label: "5 or less",
+    value: "5 or less",
+  },
+  {
+    label: "11 to 25",
+    value: "11 to 25",
+  },
+  {
+    label: "26 to 49",
+    value: "26 to 49",
+  },
+  {
+    label: "50 or more",
+    value: "50 or more",
+  },
+];
+
+type FormData = {
+  firstName: string;
+  lastName: string;
+  workEmail: string;
+  workPhone: string;
+  eventDate: string;
+  budget: number;
+  awardsNeeded: Range;
+  details: string;
+};
 
 const Form = () => {
-  //Form Component -- should it be a class w/o hooks instead?
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormData>({
+    mode: "onChange",
+  });
 
-  const [awards, setAwards] = useState("default");
-  //awards change takes a react change event, sets to event's target value
-  const awardsChange = (event: React.ChangeEvent<HTMLSelectElement>) =>
-    setAwards(event.target.value);
+  // const onSubmit: SubmitHandler<FormData> = (data) => {
+  //   console.log(data);
+  // };
+
+  const onSubmit: SubmitHandler<FormData> = async data => {
+    try {
+      const response = await fetch('/api/form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        const jsonResponse = await response.json();
+        console.log(jsonResponse.message);
+        reset();
+      } else {
+        console.error('Error responce');
+      }
+    } catch (error) {
+      console.error('Error request:', error);
+    }
+  };
 
   return (
-    <div>
-      <div className={styles.outsideContainer}>
-        <div className={styles.form}>
-          <div className={styles.formText}>
-            <p>
+    <>
+      <section className={styles.form}>
+        <div className={styles.form__container}>
+          <form className={styles.form__body} onSubmit={handleSubmit(onSubmit)}>
+            <legend className={styles.form__legend}>
               Give us a couple details on who we should reach and our team will
               get started on a better custom awards process.
-            </p>
-          </div>
-          <div className={styles.formContainer}>
-            <form className={styles.formBody} action="/form" method="post">
-              <div className={styles.formLeftHalf}>
-                <label className={styles.formLabel} htmlFor="firstName">
-                  First Name
+            </legend>
+
+            <div className={styles.form__fields}>
+              <div className={styles.form__field}>
+                <label className={styles.form__label} htmlFor="firstName">
+                  First Name *
                 </label>
                 <input
-                  className={styles.formInput}
+                  className={styles.form__input}
                   type="text"
                   id="firstName"
-                  name="firstName"
+                  {...register("firstName", {
+                    required: "This field is required",
+                    pattern: {
+                      value: /^[A-Za-z]+$/i,
+                      message: "Only letters are allowed",
+                    },
+                    maxLength: {
+                      value: 40,
+                      message: "Maximum length 40 characters",
+                    },
+                  })}
                 />
+                {errors.firstName && (
+                  <p className={styles.form__error}>
+                    {errors.firstName.message}
+                  </p>
+                )}
               </div>
 
-              <div className={styles.formHalf}>
-                <label className={styles.formLabel} htmlFor="lastName">
-                  Last Name
+              <div className={styles.form__field}>
+                <label className={styles.form__label} htmlFor="lastName">
+                  Last Name *
                 </label>
                 <input
-                  className={styles.formInput}
+                  className={styles.form__input}
                   type="text"
                   id="lastName"
-                  name="lastName"
+                  {...register("lastName", {
+                    required: "This field is required",
+                    pattern: {
+                      value: /^[A-Za-z]+$/i,
+                      message: "Only letters are allowed",
+                    },
+                    maxLength: {
+                      value: 40,
+                      message: "Maximum length 40 characters",
+                    },
+                  })}
                 />
+                {errors.lastName && (
+                  <p className={styles.form__error}>
+                    {errors.lastName.message}
+                  </p>
+                )}
               </div>
+            </div>
 
-              <div className={styles.formLeftHalf}>
-                <label className={styles.formLabel} htmlFor="workEmail">
+            <div className={styles.form__fields}>
+              <div className={styles.form__field}>
+                <label className={styles.form__label} htmlFor="workEmail">
                   Work Email Address *
                 </label>
                 <input
-                  className={styles.formInput}
-                  type="email"
+                  className={styles.form__input}
                   id="workEmail"
-                  name="workEmail"
-                  required
+                  {...register("workEmail", {
+                    required: "This field is required",
+                    pattern: {
+                      value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                      message: "Invalid e-mail",
+                    },
+                    maxLength: {
+                      value: 50,
+                      message: "Maximum length 50 characters",
+                    },
+                  })}
                 />
+                {errors.workEmail && (
+                  <p className={styles.form__error}>
+                    {errors.workEmail.message}
+                  </p>
+                )}
               </div>
 
-              <div className={styles.formHalf}>
-                <label className={styles.formLabel} htmlFor="workPhone">
+              <div className={styles.form__field}>
+                <label className={styles.form__label} htmlFor="workPhone">
                   Work Phone *
                 </label>
                 <input
-                  className={styles.formInput}
-                  type="tel"
+                  className={styles.form__input}
                   id="workPhone"
-                  name="workPhone"
-                  required
+                  {...register("workPhone", {
+                    required: "This field is required",
+                    pattern: {
+                      value: /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/,
+                      message: "Invalid phone number",
+                    },
+                    maxLength: {
+                      value: 40,
+                      message: "Maximum length 40 characters",
+                    },
+                  })}
                 />
+                {errors.workPhone && (
+                  <p className={styles.form__error}>
+                    {errors.workPhone.message}
+                  </p>
+                )}
               </div>
+            </div>
 
-              <div className={styles.formLeftHalf}>
-                <label className={styles.formLabel} htmlFor="eventDate">
+            <div className={styles.form__fields}>
+              <div className={styles.form__field}>
+                <label className={styles.form__label} htmlFor="eventDate">
                   When is your event? *
                 </label>
                 <input
-                  className={styles.formInput}
+                  className={styles.form__input}
                   type="date"
+                  min={new Date().toISOString().split("T")[0]}
                   id="eventDate"
-                  name="eventDate"
-                  required
+                  {...register("eventDate", {
+                    required: "This field is required",
+                  })}
                 />
+                {errors.eventDate && (
+                  <p className={styles.form__error}>
+                    {errors.eventDate.message}
+                  </p>
+                )}
               </div>
 
-              <div className={styles.formHalf}>
-                <label className={styles.formLabel} htmlFor="budget">
+              <div className={styles.form__field}>
+                <label className={styles.form__label} htmlFor="budget">
                   What is your budget? *
                 </label>
                 <input
-                  className={styles.formInput}
-                  type="number"
+                  className={styles.form__input}
                   id="budget"
-                  name="budget"
                   placeholder="Enter a whole number."
-                  required
+                  {...register("budget", {
+                    required: "This field is required",
+                    pattern: {
+                      value: /^[0-9]+$/i,
+                      message: "Only positive integers are allowed",
+                    },
+                  })}
                 />
+                {errors.budget && (
+                  <p className={styles.form__error}>{errors.budget.message}</p>
+                )}
               </div>
+            </div>
 
-              <div className={styles.formWhole}>
-                <label className={styles.formLabel} htmlFor="awardsNeeded">
-                  How many awards are needed? *
-                </label>
-                <select
-                  className={styles.formSelect}
-                  id="awardsNeeded"
-                  name="awardsNeeded"
-                  required
-                  value={awards}
-                  onChange={awardsChange}
-                >
-                  <option value="default" disabled>
-                    Select a range from the below.
-                  </option>
-                  <option value="5 or less">1-5</option>
-                  <option value="6 to 10">6-10</option>
-                  <option value="11 to 25">11-25</option>
-                  <option value="26 to 49">26-49</option>
-                  <option value="50 or more">50+</option>
-                </select>
-              </div>
+            <div className={styles.form__full}>
+              <label className={styles.form__label} htmlFor="awardsNeeded">
+                How many awards are needed? *
+              </label>
+              <select
+                className={styles.form__select}
+                id="awardsNeeded"
+                placeholder="Select a range from the below."
+                defaultValue={""}
+                {...register("awardsNeeded", {
+                  required: "This field is required",
+                })}
+              >
+                <option value="" disabled>
+                  Select a range from the below.
+                </option>
+                {ranges.map((option) => {
+                  return (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  );
+                })}
+              </select>
+              {errors.awardsNeeded && (
+                <p className={styles.form__error}>
+                  {errors.awardsNeeded.message}
+                </p>
+              )}
+            </div>
 
-              <div className={styles.formWhole}>
-                <label className={styles.formLabel} htmlFor="details">
-                  Please provide any additional details.
-                </label>
-                <input
-                  className={styles.formInput}
-                  type="text"
-                  id="details"
-                  name="details"
+            <div className={styles.form__full}>
+              <label className={styles.form__label} htmlFor="details">
+                Please provide any additional details.
+              </label>
+              <textarea
+                className={styles.form__input}
+                id="details"
+                {...register("details", {
+                  maxLength: {
+                    value: 500,
+                    message: "Maximum length 500 characters",
+                  },
+                })}
+              ></textarea>
+              {errors.details && (
+                <p className={styles.form__error}>{errors.details.message}</p>
+              )}
+            </div>
+
+            <div className={styles.form__action}>
+              <button
+                className={styles.form__button}
+                type="submit"
+              >
+                <Image
+                  src="/submit.png"
+                  width={"186"}
+                  height={"139"}
+                  alt="Submit Button"
                 />
-              </div>
-
-              <div>
-                <button className={styles.formButton} type="submit">
-                  <Image
-                    src="/submit.png"
-                    width={"186"}
-                    height={"139"}
-                    alt=""
-                  />
-                </button>
-              </div>
-            </form>
-          </div>
+              </button>
+            </div>
+          </form>
         </div>
-      </div>
-      <Link href={"mailto: test@gmail.com"}>
-      <p className={styles.formFooterText}>
+      </section>
+      <Link
+        href={`mailto: ${process.env.NEXT_PUBLIC_EMAIL}`}
+        className={styles.form__footerText}
+      >
         If you&apos;d prefer to contact our team of trophy experts via email,
         reach us here.
-      </p>
       </Link>
-    </div>
+    </>
   );
 };
 export default Form;

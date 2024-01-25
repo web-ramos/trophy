@@ -2,7 +2,6 @@ import Image from "next/image";
 import styles from "./Header.module.scss";
 import Link from "next/link";
 import { useState } from "react";
-import BlackButton from "../UI/BlackButton/BlackButton";
 
 const Header = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -34,21 +33,18 @@ const Header = () => {
         className={`${styles.navigation} ${openMenu ? styles.active : ""}`}
         aria-label="main"
       >
-        <Link href="/#brand" className={styles.navLink}>
+        <Link href="/#brand" className={styles.navLink} scroll={false}>
           The Brand
         </Link>
 
-        <Link href="/portfolio" className={styles.navLink}>
+        <Link href="/portfolio" className={styles.navLink} scroll={false}>
           Portfolio
         </Link>
-        <Link href="/portfolio#custom" className={styles.navLink}>
+        <Link href="/portfolio#custom" className={styles.navLink} scroll={false}>
           Custom
         </Link>
-        <Link href="/test" className={styles.navLink}>
-          Test
-        </Link>
         <Link href="/#form" className={styles.navLink}>
-          <BlackButton>Email Us</BlackButton>
+          <button>Email Us</button>
         </Link>
       </nav>
     </header>

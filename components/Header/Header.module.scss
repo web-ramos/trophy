@@ -2,13 +2,16 @@
 .container {
   width: 100%;
   padding: 0 1rem;
-  position: sticky;
   top: 0;
-  border-bottom: 1px solid #777;
+  left: 0;
   background-color: white;
   z-index: 9999;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  height: 65px;
+
 }
 
 .logoContainer {
@@ -23,6 +26,7 @@
   display: flex;
   align-items: center;
   background-color: white;
+  position: relative;
   .logoImage {
     object-fit: contain;
     width: 100% !important;
@@ -64,7 +68,7 @@
   .navLink {
     font-size: 1.25rem;
     padding: 1rem 0;
-    font-family: "Univers LT Std 45 Light";
+    font-family: "UniversLight", sans-serif;
     font-weight: 100;
     text-transform: uppercase;
   }
@@ -87,6 +91,7 @@
     position: relative;
     border-bottom: none;
     display: block;
+    height: auto;
   }
 
   .logoContainer {

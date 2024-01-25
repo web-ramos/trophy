@@ -1,23 +1,117 @@
+.footer{
+  width: 100%;
+  background-color: black;
+  color: white;
 
-@media screen and (min-width: 1080px)  {
-  .footer{
+  .footercontainer {
+    margin: auto;
     width: 100%;
-    background-color: black;
-    color: white;
-    .footercontainer {
-      //Shared Styles
-      .footerColHeader{
-        font-family: 'Univers LT Std 65 Bold';
-        font-size: 22pt;
-        margin: 0 0 0.5rem 0;
-        align-items:flex-start;
-        text-transform: uppercase;
+
+    .footerColHeader{
+      font-family: "UniversBold", sans-serif;
+      font-size: 30px;
+      margin: auto;
+      align-items:flex-start;
+      text-transform: uppercase;
+      &:after {
+        content: "";
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border: 8px solid transparent;
+        border-right: 8px solid white;
+        border-bottom: 8px solid white;
+        box-sizing: border-box;
       }
+    }
+
+    .leftColumn{
+      display: none;
+    }
+
+    .footercol{
+      text-align: center;
+      width: 100%;
+      padding-top: 2rem;
+      flex-grow: 0;
+      align-items: flex-start;
+      flex-direction: column;
+      margin: 0 auto 0 auto;
+      justify-content: flex-start;
+      .footerUl{
+        padding: 0;
+        margin: 0rem 0;
+        .footerlinks{
+          list-style: none;
+          text-decoration: none;
+          font-family: "UniversLight", sans-serif;
+          font-size: 10pt;
+          text-transform: uppercase;
+          padding: .75rem 0;
+          letter-spacing: 0.02px;
+        }
+      }
+      .footerColHeader{
+        margin:auto;
+      }
+    }
+
+    .footercolright{
+      display: block;
+      flex-grow: 0;
+      align-items: flex-end;
+      flex-direction: column;
+      margin: 1em auto;
+      justify-content: center;
+      text-align: center;
+      .footerButtonLink {
+        display: inline-block;
+      }
+      .footerButton {
+        color: black;
+        background-color: white;
+      }
+      .footerText{
+        font-family: "UniversLight", sans-serif;
+        font-size: 11pt;
+        text-align: center;
+        margin-top: 0.75rem;
+        width: 300px;
+        margin: 1em auto;
+      }
+    }
+  }
+}
+
+.copyright{
+  width: 100%;
+  max-width:100%;
+  margin-top: 1.5em;
+  margin: auto;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "UniversBold", sans-serif;
+  font-size: 9pt;
+  letter-spacing: 0.09rem;
+  padding: 1rem 0 2rem 0;
+
+}
+
+@media screen and (min-width: 992px)  {
+  .footer{
+
+    .footercontainer {
+      .leftColumn{
+        display: block;
+      }
+      .footerColHeader{
+        margin: 0 0 0.5rem 0;
+      }
+
       max-width: 1080px;
       margin: auto;
       display: flex;
 
-      //Left Column of Footer
       .leftColumn{
         padding-top: 2rem;
         flex-grow: 0;
@@ -30,7 +124,7 @@
           padding-top: 0.4rem;
         }
       }
-      //Middle Column of Footer
+
       .footercol{
         padding-top: 2rem;
         flex-grow: 0;
@@ -43,13 +137,9 @@
           padding: 0;
           margin: 0rem 0;
           .footerlinks{
-            list-style: none;
-            text-decoration: none;
-            font-family: 'Univers LT Std 45 Light';
-            font-size: 10pt;
-            text-transform: uppercase;
-            padding: .75rem 0;
-            letter-spacing: 0.02px;
+            margin: 0 0 0 5rem;
+            text-align: left;
+
           }
         }
       }
@@ -59,157 +149,17 @@
         display: flex;
         flex-grow: 0;
         align-items: flex-end;
-        flex-direction: column;
-        max-width: 33%;
         margin: 0 0 0 auto;
         justify-content: flex-start;
-        .footerButton {
-          text-transform: uppercase;
-          font-family: 'Univers LT Std 45 Light';
-          font-size: 12pt;
-          border-radius: 0px;
-          background-color: white;
-          line-height: 24px;
-          -webkit-box-shadow: none;
-          box-shadow: none;
-          padding: .45rem 1.25rem;
-          border: none;
-          float: inline-end;
-        }
         .footerText{
-          font-family: 'Univers LT Std 45 Light';
-          font-size: 11pt;
           text-align: right;
-          margin-top: 0.75rem;
         }
-      }    
+      }
     }
   }
-
-
   .copyright{
-    width: 100%;
-    max-width:100%;
     margin-top: 1.5em;
     margin: auto;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: 'Univers LT Std 65 Bold';
-    font-size: 9pt;
-    letter-spacing: 0.09rem;
     padding: 5rem 0 2rem 0;
-    
   }
-
 }
-
-
-
-
-
-@media screen and (max-width: 1079px)  {
-  .footer{
-    min-width: 100%;
-    background-color: black;
-    color: white;
-    .footercontainer {
-      //Shared Styles
-      margin: auto;
-      display: block;
-      width: 100%;
-
-      .footerImage{
-        display: none;
-      }
-      .footerColHeader{
-        font-family: 'Univers LT Std 65 Bold';
-        font-size: 22pt;
-        margin: auto;
-        align-items:flex-start;
-        text-transform: uppercase;
-      }
-      
-
-      //Left Column of Footer
-      .leftColumn{
-        display: none;
-      }
-      //Middle Column of Footer
-      .footercol{
-        text-align: center;
-        width: 100%;
-        padding-top: 2rem;
-        flex-grow: 0;
-        align-items: flex-start;
-        flex-direction: column;
-        margin: 0 auto 0 auto;
-        justify-content: flex-start;
-        .footerUl{
-          padding: 0;
-          margin: 0rem 0;
-          .footerlinks{
-            list-style: none;
-            text-decoration: none;
-            font-family: 'Univers LT Std 45 Light';
-            font-size: 10pt;
-            text-transform: uppercase;
-            padding: .75rem 0;
-            letter-spacing: 0.02px;
-          }
-        }
-        .footerColHeader{
-          margin:auto;
-        }
-      }
-
-      .footercolright{
-        padding-top: 2rem;
-        display: block;
-        flex-grow: 0;
-        align-items: flex-end;
-        flex-direction: column;
-        margin: 1em auto;
-        justify-content: flex-start;
-        text-align: center;
-        .footerButton {
-          text-transform: uppercase;
-          font-family: 'Univers LT Std 45 Light';
-          font-size: 12pt;
-          border-radius: 0px;
-          background-color: white;
-          line-height: 24px;
-          -webkit-box-shadow: none;
-          box-shadow: none;
-          padding: .45rem 1.25rem;
-          border: none;
-        }
-        .footerText{
-          font-family: 'Univers LT Std 45 Light';
-          font-size: 11pt;
-          text-align: center;
-          margin-top: 0.75rem;
-          width: 300px;
-          margin: 1em auto;
-        }
-      }    
-    }
-  }
-
-
-  .copyright{
-    width: 100%;
-    max-width:100%;
-    margin-top: 1.5em;
-    margin: auto;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: 'Univers LT Std 65 Bold';
-    font-size: 9pt;
-    letter-spacing: 0.09rem;
-    padding: 1rem 0 2rem 0;
-    
-  }
-
-}
-
-
