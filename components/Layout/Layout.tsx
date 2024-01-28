@@ -1,13 +1,13 @@
-import Image from "next/image";
-import styles from "./Layout.module.scss";
-import Footer from "../Footer/Footer";
-import Header from "../Header/Header";
-import Form from "../Form";
-import { ReactNode } from "react";
-import Head from "next/head";
+import Image from "next/image"
+import styles from "./Layout.module.scss"
+import Footer from "../Footer/Footer"
+import Header from "../Header/Header"
+import Form from "../Form"
+import { ReactNode } from "react"
+import Head from "next/head"
 
 interface Props {
-  children: ReactNode;
+  children: ReactNode
 }
 
 const Layout = ({ children }: Props) => {
@@ -46,7 +46,7 @@ const Layout = ({ children }: Props) => {
         <Footer />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

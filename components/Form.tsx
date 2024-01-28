@@ -1,13 +1,15 @@
-import Image from "next/image";
-import styles from "../styles/form.module.scss";
-import React from "react";
-import Link from "next/link";
-import { useForm, SubmitHandler } from "react-hook-form";
+'use client'
+
+import Image from "next/image"
+import styles from "../styles/form.module.scss"
+import React from "react"
+import Link from "next/link"
+import { useForm, SubmitHandler } from "react-hook-form"
 
 type Range = {
-  label: string;
-  value: string;
-};
+  label: string
+  value: string
+}
 
 const ranges: Range[] = [
   {
@@ -26,18 +28,18 @@ const ranges: Range[] = [
     label: "50 or more",
     value: "50 or more",
   },
-];
+]
 
 type FormData = {
-  firstName: string;
-  lastName: string;
-  workEmail: string;
-  workPhone: string;
-  eventDate: string;
-  budget: number;
-  awardsNeeded: Range;
-  details: string;
-};
+  firstName: string
+  lastName: string
+  workEmail: string
+  workPhone: string
+  eventDate: string
+  budget: number
+  awardsNeeded: Range
+  details: string
+}
 
 const Form = () => {
   const {
@@ -47,11 +49,7 @@ const Form = () => {
     formState: { errors },
   } = useForm<FormData>({
     mode: "onChange",
-  });
-
-  // const onSubmit: SubmitHandler<FormData> = (data) => {
-  //   console.log(data);
-  // };
+  })
 
   const onSubmit: SubmitHandler<FormData> = async data => {
     try {
@@ -61,19 +59,19 @@ const Form = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
-      });
+      })
 
       if (response.ok) {
-        const jsonResponse = await response.json();
-        console.log(jsonResponse.message);
-        reset();
+        const jsonResponse = await response.json()
+        console.log(jsonResponse.message)
+        reset()
       } else {
-        console.error('Error responce');
+        console.error('Error responce')
       }
     } catch (error) {
-      console.error('Error request:', error);
+      console.error('Error request:', error)
     }
-  };
+  }
 
   return (
     <>
@@ -259,7 +257,7 @@ const Form = () => {
                     <option key={option.value} value={option.value}>
                       {option.label}
                     </option>
-                  );
+                  )
                 })}
               </select>
               {errors.awardsNeeded && (
@@ -308,10 +306,10 @@ const Form = () => {
         href={`mailto: ${process.env.NEXT_PUBLIC_EMAIL}`}
         className={styles.form__footerText}
       >
-        If you&apos;d prefer to contact our team of trophy experts via email,
+        If you&aposd prefer to contact our team of trophy experts via email,
         reach us here.
       </Link>
     </>
-  );
-};
-export default Form;
+  )
+}
+export default Form
