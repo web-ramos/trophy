@@ -2,9 +2,11 @@
 
 import Image from "next/image"
 import styles from "../styles/form.module.scss"
-import React from "react"
+import React, { useState } from "react"
 import Link from "next/link"
 import { useForm, SubmitHandler } from "react-hook-form"
+import { getResponse } from "../pages/api/form"
+import { Mail } from "../types/types"
 
 type Range = {
   label: string
@@ -42,42 +44,35 @@ type FormData = {
 }
 
 const Form = () => {
+  const [serverResponse, setServerResponse] = useState<string | null | undefined>(null)
+
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<FormData>({
+  } = useForm<Mail>({
     mode: "onChange",
   })
 
-  const onSubmit: SubmitHandler<FormData> = async data => {
-    try {
-      const response = await fetch('/api/form', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
+  // const onSubmit: SubmitHandler<FormData> = async data => {
+  //   const response = await getResponse(data)
+  //   setServerResponse(response);
+  // }
 
-      if (response.ok) {
-        const jsonResponse = await response.json()
-        console.log(jsonResponse.message)
-        reset()
-      } else {
-        console.error('Error responce')
-      }
-    } catch (error) {
-      console.error('Error request:', error)
-    }
-  }
+  const action: any = handleSubmit(async (data) => {
+    const response = await getResponse(data)
+    setServerResponse(response);
+  })
 
   return (
     <>
       <section className={styles.form}>
         <div className={styles.form__container}>
-          <form className={styles.form__body} onSubmit={handleSubmit(onSubmit)}>
+          <form
+            className={styles.form__body}
+            action={action}
+          >
             <legend className={styles.form__legend}>
               Give us a couple details on who we should reach and our team will
               get started on a better custom awards process.
@@ -301,6 +296,7 @@ const Form = () => {
             </div>
           </form>
         </div>
+        <div className={styles.form__responce}>{serverResponse}</div>
       </section>
       <Link
         href={`mailto: ${process.env.NEXT_PUBLIC_EMAIL}`}

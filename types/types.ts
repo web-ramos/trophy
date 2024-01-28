@@ -1,7 +1,7 @@
 import { InferType } from "yup";
 import { mailSchema } from "./schema";
 
-export type Mail = InferType<typeof mailSchema> | undefined
+export type Mail = InferType<typeof mailSchema>
 
 type ErrorValidate = {
     path: string | 'unknown',
