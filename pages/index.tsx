@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
-import Form from "../components/Form";
+import Form from "../components/Form/Form";
 import Link from "next/link";
 
 const Home: NextPage = () => {

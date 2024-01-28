@@ -1,8 +1,6 @@
-'use client'
-
 import Image from "next/image"
-import styles from "../styles/form.module.scss"
-import React from "react"
+import styles from "./form.module.scss"
+import React, { useState } from "react"
 import Link from "next/link"
 import { useForm, SubmitHandler } from "react-hook-form"
 
@@ -51,6 +49,8 @@ const Form = () => {
     mode: "onChange",
   })
 
+  const [responseForm, setResponseForm] = useState('')
+
   const onSubmit: SubmitHandler<FormData> = async data => {
     try {
       const response = await fetch('/api/form', {
@@ -64,6 +64,7 @@ const Form = () => {
       if (response.ok) {
         const jsonResponse = await response.json()
         console.log(jsonResponse.message)
+        setResponseForm('Your request delivered successfull !')
         reset()
       } else {
         console.error('Error responce')
@@ -302,11 +303,14 @@ const Form = () => {
           </form>
         </div>
       </section>
+      {
+        (responseForm && <div className={styles.form__response}>{responseForm}</div>)
+      }
       <Link
         href={`mailto: ${process.env.NEXT_PUBLIC_EMAIL}`}
         className={styles.form__footerText}
       >
-        If you&aposd prefer to contact our team of trophy experts via email,
+        If you prefer to contact our team of trophy experts via email,
         reach us here.
       </Link>
     </>

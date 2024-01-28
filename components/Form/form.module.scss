@@ -78,6 +78,15 @@
         text-align: right;
     }
 
+    &__response {
+        padding-top: 1rem;
+        text-align: center;
+        width: 100%;
+        max-width: 685px;
+        color: red;
+        font-size: 1.25rem;
+    }
+
     textarea {
         resize: vertical;
         min-height: 37px;

@@ -2,7 +2,7 @@ import Image from "next/image"
 import styles from "./Layout.module.scss"
 import Footer from "../Footer/Footer"
 import Header from "../Header/Header"
-import Form from "../Form"
+import Form from "../Form/Form"
 import { ReactNode } from "react"
 import Head from "next/head"
 
