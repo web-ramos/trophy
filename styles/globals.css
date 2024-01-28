@@ -4,11 +4,18 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-size: 16px;
+  scroll-behavior: smooth;
 }
+
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
 }
 
 * {
@@ -27,17 +34,32 @@ a {
 }
 
 @font-face {
-  font-family: 'Univers LT Std 65 Bold';
+  font-family: 'UniversBold';
   src: url('../public/fonts/Univers LT Std 65 Bold.otf');
 }
 
 @font-face {
-  font-family: 'Univers LT Std 45 Light';
+  font-family: 'UniversLight';
   src: url('../public/fonts/Univers LT Std 45 Light.otf');
 }
 
-@font-face {
-  font-family: 'Univers LT Std 65 Bold';
-  src: url('../public/fonts/Univers LT Std 65 Bold.otf');
+button {
+  display: block;
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  font-family: 'UniversLight', sans-serif;
+  padding: 12px 20px 10px;
+  font-size: 1rem;
+  line-height: 1rem;
+  outline: none;
+  border: none;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}

@@ -1,0 +1,165 @@
+.footer{
+  width: 100%;
+  background-color: black;
+  color: white;
+
+  .footercontainer {
+    margin: auto;
+    width: 100%;
+
+    .footerColHeader{
+      font-family: "UniversBold", sans-serif;
+      font-size: 30px;
+      margin: auto;
+      align-items:flex-start;
+      text-transform: uppercase;
+      &:after {
+        content: "";
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border: 8px solid transparent;
+        border-right: 8px solid white;
+        border-bottom: 8px solid white;
+        box-sizing: border-box;
+      }
+    }
+
+    .leftColumn{
+      display: none;
+    }
+
+    .footercol{
+      text-align: center;
+      width: 100%;
+      padding-top: 2rem;
+      flex-grow: 0;
+      align-items: flex-start;
+      flex-direction: column;
+      margin: 0 auto 0 auto;
+      justify-content: flex-start;
+      .footerUl{
+        padding: 0;
+        margin: 0rem 0;
+        .footerlinks{
+          list-style: none;
+          text-decoration: none;
+          font-family: "UniversLight", sans-serif;
+          font-size: 10pt;
+          text-transform: uppercase;
+          padding: .75rem 0;
+          letter-spacing: 0.02px;
+        }
+      }
+      .footerColHeader{
+        margin:auto;
+      }
+    }
+
+    .footercolright{
+      display: block;
+      flex-grow: 0;
+      align-items: flex-end;
+      flex-direction: column;
+      margin: 1em auto;
+      justify-content: center;
+      text-align: center;
+      .footerButtonLink {
+        display: inline-block;
+      }
+      .footerButton {
+        color: black;
+        background-color: white;
+      }
+      .footerText{
+        font-family: "UniversLight", sans-serif;
+        font-size: 11pt;
+        text-align: center;
+        margin-top: 0.75rem;
+        width: 300px;
+        margin: 1em auto;
+      }
+    }
+  }
+}
+
+.copyright{
+  width: 100%;
+  max-width:100%;
+  margin-top: 1.5em;
+  margin: auto;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "UniversBold", sans-serif;
+  font-size: 9pt;
+  letter-spacing: 0.09rem;
+  padding: 1rem 0 2rem 0;
+
+}
+
+@media screen and (min-width: 992px)  {
+  .footer{
+
+    .footercontainer {
+      .leftColumn{
+        display: block;
+      }
+      .footerColHeader{
+        margin: 0 0 0.5rem 0;
+      }
+
+      max-width: 1080px;
+      margin: auto;
+      display: flex;
+
+      .leftColumn{
+        padding-top: 2rem;
+        flex-grow: 0;
+        align-items: flex-start;
+        flex-direction: column;
+        max-width: 33%;
+        margin: 0 0;
+        justify-content: flex-start;
+        .footerImage{
+          padding-top: 0.4rem;
+        }
+      }
+
+      .footercol{
+        padding-top: 2rem;
+        flex-grow: 0;
+        align-items: flex-start;
+        flex-direction: column;
+        max-width: 33%;
+        margin: 0 0 0 5rem;
+        justify-content: flex-start;
+        .footerUl{
+          padding: 0;
+          margin: 0rem 0;
+          .footerlinks{
+            margin: 0 0 0 5rem;
+            text-align: left;
+
+          }
+        }
+      }
+
+      .footercolright{
+        padding-top: 2rem;
+        display: flex;
+        flex-grow: 0;
+        align-items: flex-end;
+        margin: 0 0 0 auto;
+        justify-content: flex-start;
+        .footerText{
+          text-align: right;
+        }
+      }
+    }
+  }
+  .copyright{
+    margin-top: 1.5em;
+    margin: auto;
+    padding: 5rem 0 2rem 0;
+  }
+}

@@ -1,0 +1,140 @@
+// Common styles
+.container {
+  width: 100%;
+  padding: 0 1rem;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 9999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  height: 65px;
+
+}
+
+.logoContainer {
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.logoImageContainer {
+  width: 15rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  position: relative;
+  .logoImage {
+    object-fit: contain;
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
+  }
+}
+
+.hamburgerContainer {
+  width: 2.5rem;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  .hamburger {
+    object-fit: contain;
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
+  }
+}
+
+.navigation {
+  position: fixed;
+  left: 0;
+  top: calc(4rem + 1px);
+  width: 100%;
+  background-color: white;
+  height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  transition: height 0.3s;
+  &.active {
+    height: calc(100vh - 4rem);
+  }
+
+  .navLink {
+    font-size: 1.25rem;
+    padding: 1rem 0;
+    font-family: "UniversLight", sans-serif;
+    font-weight: 100;
+    text-transform: uppercase;
+  }
+}
+
+.link {
+  margin: 0 2rem;
+  font-size: 12pt;
+  padding: 4px;
+  text-transform: uppercase;
+}
+
+// Desktop styles
+@media only screen and (min-width: 992px) {
+  .container {
+    width: calc(100% - 2rem);
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    position: relative;
+    border-bottom: none;
+    display: block;
+    height: auto;
+  }
+
+  .logoContainer {
+    padding: 0 0 2rem 0;
+    display: block;
+  }
+
+  .logoImageContainer {
+    width: 421px;
+    height: auto;
+    display: block;
+  }
+
+  .hamburgerContainer {
+    display: none;
+  }
+
+  .navigation {
+    height: auto !important;
+    flex-direction: row;
+    position: relative;
+    left: 0;
+    top: 0;
+    height: auto;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    transition: none;
+    &.active {
+      height: auto;
+    }
+
+    .navLink {
+      margin: 0 2rem;
+      font-size: 1rem;
+      padding: 0.25rem;
+    }
+  }
+
+  .link {
+    margin: 0 2rem;
+    font-size: 12pt;
+    padding: 4px;
+    text-transform: uppercase;
+  }
+}

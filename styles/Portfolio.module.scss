@@ -1,219 +1,547 @@
-.container {
-  padding: 0 0;
+.main {
+  margin-top: 65px;
+  @media only screen and (min-width: 992px) {
+    margin-top: 0;
+  }
+}
+
+.banner {
   width: 100%;
+  padding-top: 50px;
 
-  .main {
-    margin: auto;
-    display: block;
-    width: 1080px;
-    h1 {
-      font-family: "Univers LT Std 65 Bold";
-      font-weight: 100;
-      font-size: 52px;
-      line-height: 48px;
-      text-transform: uppercase;
-    }
-    h2 {
-      font-family: "Univers LT Std 65 Bold";
-      font-weight: 100;
-    }
-    p {
-      font-family: "Univers LT Std 45 Light";
-      font-weight: 100;
-      font-size: 17px;
-      line-height: 24px;
-    }
+  &__container {
+    padding: 0 1rem;
+    margin: 0 auto;
+    position: relative;
   }
-}
 
-.expertise {
-  position: relative;
-  margin: 50px auto;
-  width: 965px;
-  .expertiseText {
+  &__imageWrapper {
+    width: calc(100% + 2rem);
+    height: 100%;
+    margin: 0 -2rem;
     position: absolute;
-    top: 20px;
-    color: white;
-    width: 600px;
-    left: 60px;
-    .expertiseDescription {
-      width: 430px;
-      margin: auto;
-      h2 {
-        font-size: 32px;
-        margin-bottom: 15px;
-      }
-      button {
-        font-family: "Univers LT Std 45 Light";
-        font-size: 12pt;
-        font-weight: 100;
-        padding: 4px;
-        text-transform: uppercase;
-        color: white;
-        background-color: black;
-        border: none;
-        padding: 0.65rem 1.25rem;
-        position: absolute;
-        bottom: -50px;
-        right: 115px;
-      }
-    }
-  }
-}
-
-.customCrystal {
-  display: flex;
-  width: 825px;
-  margin: 0 auto 75px;
-  justify-content: space-between;
-  .customCrystalText {
-    width: 395px;
-    align-self: center;
-    h2 {
-      font-size: 30px;
-    }
-  }
-}
-
-.power {
-  width: 983px;
-  margin: 0 auto 75px;
-  position: relative;
-  .powerText {
-    position: absolute;
-    color: white;
-    top: 50px;
-    left: 100px;
-    h2 {
-      font-size: 68px;
-      line-height: 64px;
-      text-transform: uppercase;
-      width: 330px;
-      margin-bottom: 30px;
-    }
-    p {
-      width: 490px;
-    }
-  }
-}
-.brandedMetal {
-  width: 840px;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto 75px;
-  align-items: center;
-  .brandedMetalText {
-    width: 395px;
-    button {
-      font-family: "Univers LT Std 45 Light";
-      font-size: 12pt;
-      font-weight: 100;
-      text-transform: uppercase;
-      color: white;
-      background-color: black;
-      border: none;
-      padding: 0.65rem 1.25rem;
-      float: right;
-      right: 10px;
-      margin-top: 15px;
-    }
-    h2 {
-      font-size: 32px;
-    }
-  }
-}
-.machinedLogo {
-  width: 878px;
-  margin: 0 auto 75px;
-  position: relative;
-  .machinedLogoText {
-    color: white;
     top: 0;
-    left: 40px;
-    position: absolute;
-    h2 {
-      margin-top: 40px;
-      font-size: 52px;
-      line-height: 48px;
-      text-transform: uppercase;
-      width: 468px;
+    left: 0;
+    img {
+      object-fit: cover;
+      object-position: left;
+      width: 100% !important;
+      position: relative !important;
+      height: 100% !important;
+    }
+  }
+
+  &__textWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 630px;
+    height: 100%;
+    padding: 70px 25px 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__title {
+    font-family: "UniversBold", sans-serif;
+    text-transform: uppercase;
+    color: white;
+    font-size: 52px;
+    line-height: 48px;
+    text-shadow: 0 0 26px black;
+    margin-bottom: 25px;
+    &:after {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 8px solid transparent;
+      border-right: 8px solid white;
+      border-bottom: 8px solid white;
+      box-sizing: border-box;
+      text-shadow: 0 0 26px black;
+    }
+  }
+
+  &__subtitle {
+    margin-left: 50px;
+    font-family: "UniversBold", sans-serif;
+    color: white;
+    font-size: 32px;
+    text-shadow: 0 0 26px black;
+    margin-bottom: 20px;
+  }
+
+  &__description {
+    margin-left: 50px;
+    margin-bottom: 25px;
+    font-family: "UniversLight", sans-serif;
+    color: white;
+    font-size: 17px;
+    line-height: 24px;
+    text-shadow: 0 0 9px black;
+  }
+
+  &__action {
+    display: inline-block;
+    align-self: flex-end;
+  }
+
+  @media only screen and (min-width: 992px) {
+    &__container {
+      max-width: 965px;
+      height: 506px;
+    }
+
+    &__textWrapper {
+      max-width: 685px;
+      height: auto;
+      padding: 0px 25px 0px;
+    }
+
+    &__imageWrapper {
+      width: 100%;
+      margin: 0;
+    }
+
+    &__title {
+      padding: 55px 25px 0;
       margin-bottom: 30px;
     }
-    p {
-      width: 460px;
+
+    &__subtitle {
+      width: 430px;
+      margin-left: 85px;
+    }
+
+    &__description {
+      width: 430px;
+      margin-left: 85px;
+    }
+
+    &__action {
+      margin-right: 100px;
     }
   }
 }
-.awards {
-  display: flex;
-  align-items: center;
-  width: 893px;
-  margin: 0 auto 75px;
-  .iAward {
-    margin-left: 55px;
+
+.expertise{
+  width: 100%;
+  margin-bottom: 50px;
+  padding-top: 50px;
+
+  &__container {
+    padding: 0 1rem;
+    margin: 0 auto;
+    position: relative;
   }
-  .years {
-    margin-left: 34px;
+
+  &__imageWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+  }
+
+  &__textWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-family: "UniversBold", sans-serif;
+    font-size: 32px;
+    margin-bottom: 25px;
+
+  }
+
+  &__text {
+    font-size: 17px;
+    line-height: 24px;
+    font-family: "UniversLight", sans-serif;
+    margin-bottom: 17px;
+  }
+
+  &__link {
+    display: inline-block;
+    align-self: flex-end;
+  }
+
+  @media only screen and (min-width: 992px) {
+    &__container {
+      max-width: 852px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__imageWrapper {
+      margin-bottom: 0;
+    }
+
+    &__textWrapper {
+      justify-content: center;
+      width: 390px;
+    }
   }
 }
+
+
+.honor {
+  width: 100%;
+  &__container {
+    padding: 0 1rem;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  &__imageWrapper {
+    width: calc(100% + 2rem);
+    height: 100%;
+    margin: 0 -2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    img {
+      object-fit: cover;
+      object-position: left;
+      width: 100% !important;
+      position: relative !important;
+      height: 100% !important;
+    }
+  }
+
+  &__textWrapper {
+    position: relative;
+    padding: 20px 0 25px 25px;
+
+  }
+
+  &__title {
+    font-family: "UniversBold", sans-serif;
+    text-transform: uppercase;
+    color: white;
+    font-size: 68px;
+    line-height: 64px;
+    margin-bottom: 35px;
+    &:after {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 8px solid transparent;
+      border-right: 8px solid white;
+      border-bottom: 8px solid white;
+      box-sizing: border-box;
+    }
+  }
+
+  &__text {
+    color: white;
+    font-size: 17px;
+    line-height: 24px;
+    font-family: "UniversLight", sans-serif;
+    margin-bottom: 17px;
+  }
+
+  @media only screen and (min-width: 992px) {
+    &__container {
+      max-width: 1017px
+    }
+
+    &__imageWrapper {
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    &__title {
+      width: 325px;
+    }
+
+
+    &__textWrapper {
+      position: absolute;
+      top: 89px;
+      left: 76px;
+      width: 561px;
+      padding: 25px 25px 0 50px;
+    }
+  }
+}
+
+.machinedLogo {
+  width: 100%;
+  &__container {
+    padding: 0 1rem;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  &__imageWrapper {
+    width: calc(100% + 2rem);
+    height: 100%;
+    margin: 0 -2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    img {
+      object-fit: cover;
+      object-position: left;
+      width: 100% !important;
+      position: relative !important;
+      height: 100% !important;
+    }
+  }
+
+  &__textWrapper {
+    position: relative;
+    padding: 20px 0 65px;
+
+  }
+
+  &__title {
+    font-family: "UniversBold", sans-serif;
+    text-transform: uppercase;
+    color: white;
+    font-size: 52px;
+    line-height: 48px;
+    margin-bottom: 30px;
+  }
+
+  &__text {
+    color: white;
+    font-size: 17px;
+    line-height: 24px;
+    font-family: "UniversLight", sans-serif;
+    margin-bottom: 17px;
+  }
+
+  @media only screen and (min-width: 992px) {
+    &__container {
+      max-width: 910px
+    }
+
+    &__imageWrapper {
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    &__textWrapper {
+      position: absolute;
+      top: 0px;
+      left: 15px;
+      width: 546px;
+      padding: 25px 25px 0 25px;
+    }
+  }
+}
+
+.awards {
+  padding: 50px 0;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0 30px;
+    margin: 0 auto;
+  }
+  @media only screen and (min-width: 992px) {
+    padding: 75px 0;
+    &__container {
+      max-width: 893px;
+      flex-direction: row;
+      justify-content: center;
+      gap: 30px;
+      div {
+        flex: 25% 1 1;
+      }
+    }
+
+  }
+}
+
 
 .premiumAwards {
-  width: 983px;
-  margin: 0 auto 75px;
-  position: relative;
-  .premiumAwardsText {
+  width: 100%;
+  margin-bottom: 50px;
+  &__container {
+    padding: 0 1rem;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  &__imageWrapper {
+    width: calc(100% + 2rem);
+    height: 100%;
+    margin: 0 -2rem;
     position: absolute;
-    left: 425px;
-    top: 70px;
-    color: white;
-    h2 {
-      font-size: 68px;
-      font-weight: 100;
-      text-transform: uppercase;
-      line-height: 64px;
-      width: 360px;
-      margin-bottom: 30px;
+    top: 0;
+    left: 0;
+    img {
+      object-fit: cover;
+      object-position: left;
+      width: 100% !important;
+      position: relative !important;
+      height: 100% !important;
     }
-    p {
-      width: 453px;
+  }
+
+  &__textWrapper {
+    position: relative;
+    padding: 20px 0 65px;
+
+  }
+
+  &__title {
+    font-family: "UniversBold", sans-serif;
+    text-transform: uppercase;
+    color: white;
+    font-size: 68px;
+    line-height: 64px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 26px black;
+    &:after {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 8px solid transparent;
+      border-right: 8px solid white;
+      border-bottom: 8px solid white;
+      box-sizing: border-box;
+    }
+  }
+
+  &__text {
+    color: white;
+    font-size: 17px;
+    line-height: 24px;
+    font-family: "UniversLight", sans-serif;
+    margin-bottom: 17px;
+    text-shadow: 0 0 9px black;
+  }
+
+  @media only screen and (min-width: 992px) {
+    margin-bottom: 95px;
+    &__container {
+      max-width: 1015px
+    }
+
+    &__imageWrapper {
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    &__textWrapper {
+      position: absolute;
+      top: 85px;
+      left: 385px;
+      width: 563px;
+      padding: 35px 45px 0 45px;
+    }
+  }
+}
+
+.bottomBanner {
+  width: 100%;
+
+  &__container {
+    padding: 0 1rem;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  &__imageWrapper {
+    width: calc(100% + 2rem);
+    height: 100%;
+    margin: 0 -2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    img {
+      object-fit: cover;
+      object-position: left;
+      width: 100% !important;
+      position: relative !important;
+      height: 100% !important;
+    }
+  }
+
+  &__textWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 45px 0 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-family: "UniversBold", sans-serif;
+    text-transform: uppercase;
+    color: white;
+    font-size: 68px;
+    line-height: 64px;
+    text-shadow: 0 0 26px black;
+    margin-bottom: 20px;
+  }
+
+  &__subtitle {
+    margin-left: 50px;
+    font-family: "UniversBold", sans-serif;
+    color: white;
+    font-size: 32px;
+    text-shadow: 0 0 26px black;
+    margin-bottom: 20px;
+  }
+
+
+  &__action {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  @media only screen and (min-width: 992px) {
+    max-width: 920px;
+    align-self: flex-start;
+    z-index: 20;
+    position: relative;
+    top: -15px;
+
+    &__imageWrapper {
+      width: 100%;
+      margin: 0;
+    }
+
+    &__title {
+      width: 520px;
+      margin-left: 380px;
+    }
+
+    &__subtitle {
+      width: 430px;
+      margin-left: 380px;
+    }
+
+    &__description {
+      width: 390px;
+      margin-left: 430px;
+    }
+
+    &__action {
+      margin-right: calc(50px - 1rem);
     }
   }
 }
 
 .formWrapper {
   position: relative;
-  margin: auto;
-  width: 950px;
-  h2 {
-    position: absolute;
-    color: white;
-    font-size: 68px;
-    font-weight: 100;
-    text-transform: uppercase;
-    line-height: 64px;
-    top: 30px;
-    left: 350px;
-    z-index: 10;
-    width: 450px;
-  }
-  h3 {
-    position: absolute;
-    font-family: "Univers LT Std 65 Bold";
-    font-weight: 100;
-    color: white;
-    z-index: 10;
-    top: 260px;
-    left: 350px;
-    z-index: 10;
-    width: 475px;
-    font-size: 32px;
-  }
-  .formText {
-    margin-left: 340px;
-  }
-  .formImage {
-    top: 50px;
-    position: absolute;
-    z-index: 2;
+  margin: 0 auto;
+  @media only screen and (min-width: 992px) {
+    width: 950px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
   }
 }
