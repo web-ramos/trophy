@@ -3,7 +3,7 @@ FROM node:20-alpine
 ARG USER_ID
 ARG GROUP_ID
 
-RUN deluser node && \
+RUN deluser node  || true && \
     delgroup node || true && \
     addgroup -g ${GROUP_ID} node && \
     adduser -u ${USER_ID} -G node -h /home/node -s /bin/sh -D node
