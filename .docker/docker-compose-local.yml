@@ -24,9 +24,9 @@ services:
     container_name: trophy_nginx
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.trophy_nginx.rule=Host(`moderntrophy.com`)"
-      # - "traefik.http.routers.trophy_nginx.entrypoints=websecure"
-      # - "traefik.http.routers.trophy_nginx.tls=true"
+      - "traefik.http.routers.trophy_nginx.rule=Host(`moderntrophy.loc`)"
+      # - "traefik.http.routers.sa_awards.entrypoints=websecure"
+      # - "traefik.http.routers.sa_awards.tls=true"
     networks:
       - sa_trophy
 
