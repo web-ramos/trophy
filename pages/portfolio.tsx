@@ -52,7 +52,7 @@ const Portfolio: NextPage = () => {
             </div>
         </section>
 
-        <section className={styles.expertise}>
+        <section className={styles.expertise} id="custom">
           <div className={styles.expertise__container}>
             <div className={styles.expertise__imageWrapper}>
               <Image
