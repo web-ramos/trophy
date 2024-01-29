@@ -3,8 +3,10 @@ FROM node:20-alpine
 ARG USER_ID
 ARG GROUP_ID
 
-RUN addgroup -g ${GROUP_ID} node && \
-    adduser -u ${USER_ID} -G node -h /home/node -s /bin/sh -D node
+RUN RUN deluser node || true
+RUN delgroup node || true
+RUN addgroup -g ${GROUP_ID} node
+RUN adduser -u ${USER_ID} -G node -h /home/node -s /bin/sh -D node
 
 RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 
