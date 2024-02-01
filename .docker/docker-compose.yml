@@ -11,8 +11,9 @@ services:
     restart: always
     container_name: trophy_nextjs
     volumes:
-      - ./../logs:/home/node/app/logs:rw
-      - ./../package-lock.json:/home/node/app/package-lock.json:rw
+      # change to your app path
+      - /home/apps/sites/moderntrophy/.docker/docker-compose.yml/logs:/home/node/app/logs:rw
+      - /home/apps/sites/moderntrophy/package-lock.json:/home/node/app/package-lock.json:rw
     networks:
       - sa_trophy
 
