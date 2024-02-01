@@ -11,15 +11,15 @@ services:
     restart: always
     container_name: trophy_nextjs
     volumes:
-      - ./../logs:/home/node/app/logs:rw
-      - ./../package-lock.json:/home/node/app/package-lock.json:rw
+      - /home/ramos/Projects/society/app_trophy/app/logs:/home/node/app/logs:rw
+      - /home/ramos/Projects/society/app_trophy/app/package-lock.json:/home/node/app/package-lock.json:rw
     networks:
       - sa_trophy
 
   trophy_nginx:
     build:
       context: .
-      dockerfile: ./node/Dockerfile
+      dockerfile: ./nginx/Dockerfile
     restart: always
     container_name: trophy_nginx
     labels:
