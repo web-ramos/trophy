@@ -12,7 +12,7 @@ services:
     container_name: trophy_nextjs
     volumes:
       # change to your app path
-      - /home/apps/sites/moderntrophy/.docker/docker-compose.yml/logs:/home/node/app/logs:rw
+      - /home/apps/sites/moderntrophy/logs:/home/node/app/logs:rw
       - /home/apps/sites/moderntrophy/package-lock.json:/home/node/app/package-lock.json:rw
     networks:
       - sa_trophy
@@ -20,7 +20,7 @@ services:
   trophy_nginx:
     build:
       context: .
-      dockerfile: ./node/Dockerfile
+      dockerfile: ./nginx/Dockerfile
     restart: always
     container_name: trophy_nginx
     labels:
