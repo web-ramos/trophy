@@ -4,15 +4,9 @@ services:
   trophy_nextjs:
     build:
       context: ../
-      dockerfile: ./.docker/node/Dockerfile
-      args:
-        USER_ID: ${USER_ID}
-        GROUP_ID: ${GROUP_ID}
+      dockerfile: ./docker/node/Dockerfile
     restart: always
     container_name: trophy_nextjs
-    volumes:
-      - /home/ramos/Projects/society/app_trophy/app/logs:/home/node/app/logs:rw
-      - /home/ramos/Projects/society/app_trophy/app/package-lock.json:/home/node/app/package-lock.json:rw
     networks:
       - sa_trophy
 

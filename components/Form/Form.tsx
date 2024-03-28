@@ -34,8 +34,8 @@ type FormData = {
   workEmail: string
   workPhone: string
   eventDate: string
-  budget: number
-  awardsNeeded: Range
+  budget: number | null
+  awardsNeeded: Range | ''
   details: string
 }
 
@@ -46,12 +46,13 @@ const Form = () => {
     reset,
     formState: { errors },
   } = useForm<FormData>({
-    mode: "onChange",
+    mode: "onChange"
   })
 
   const [responseForm, setResponseForm] = useState('')
 
   const onSubmit: SubmitHandler<FormData> = async data => {
+    reset(data)
     try {
       const response = await fetch('/api/form', {
         method: 'POST',
@@ -65,7 +66,16 @@ const Form = () => {
         const jsonResponse = await response.json()
         console.log(jsonResponse.message)
         setResponseForm('Your request delivered successfull !')
-        reset()
+        reset({
+          firstName: "",
+          lastName: "",
+          workEmail: "",
+          workPhone: "",
+          eventDate: "",
+          budget: null,
+          awardsNeeded: '',
+          details: "",
+        });
       } else {
         console.error('Error responce')
       }
@@ -177,7 +187,7 @@ const Form = () => {
                   {...register("workPhone", {
                     required: "This field is required",
                     pattern: {
-                      value: /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/,
+                      value: /^\+?(\(?\d\)?[-\s]*){9,20}$/,
                       message: "Invalid phone number",
                     },
                     maxLength: {

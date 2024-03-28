@@ -18,7 +18,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       } catch (error) {
         logger.error({ message: 'Error sending mail' })
       }
-      logger.info(parseMail)
+
       res.status(200).json({ message: 'Form was delivered successfull' })
     }
 

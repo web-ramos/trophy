@@ -3,17 +3,22 @@ version: '3.5'
 services:
   trophy_nextjs:
     build:
-      context: ../
-      dockerfile: ./.docker/node/Dockerfile
-      args:
-        USER_ID: ${USER_ID}
-        GROUP_ID: ${GROUP_ID}
+      context: .
+      dockerfile: ./node/Dockerfile
     restart: always
     container_name: trophy_nextjs
-    volumes:
-      # change to your app path
-      - /home/apps/sites/moderntrophy/logs:/home/node/app/logs:rw
-      - /home/apps/sites/moderntrophy/package-lock.json:/home/node/app/package-lock.json:rw
+    # environment:
+    #   - MAIL_HOST=outbound.mailhop.org
+    #   - MAIL_USERNAME=societyawards
+    #   - MAIL_PASSWORD=Hha5ntUB2FJmx!Z
+    #   - MAIL_PORT=25
+    #   - MAIL_SECURE=tls
+    #   - MAIL_ADMIN=webmaster.ramos@gmail.com
+    #   - MAIL_SENDER=servers@societyawards.com
+    # volumes:
+    #   # change to your app path
+    #   - /home/apps/sites/moderntrophy/logs:/home/node/app/logs:rw
+    #   - /home/apps/sites/moderntrophy/package-lock.json:/home/node/app/package-lock.json:rw
     networks:
       - sa_trophy
 
