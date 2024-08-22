@@ -1,1 +1,53 @@
-node_modules/
+# Exclude node_modules, but keep package.json and yarn.lock
+node_modules
+**/node_modules
+
+# Logs and temporary files
+npm-debug.log
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Local environment configuration files
+.env
+.env.local
+.env.*.local
+.env.test
+.env.production
+
+# Cache and temporary files
+.cache
+.next/cache
+.next/static
+
+# IDE and editor configurations
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Test and mock data
+__tests__
+__mocks__
+
+# Build artifacts and compiled output
+out/
+build/
+dist/
+coverage/
+
+# Documentation and non-code files
+CHANGELOG.md
+readme.md
+README.md
+
+# Source files and styles that are not required in production
+components/
+styles/
+types/
+services/
+
+# Exclude tsconfig for development scenarios using TypeScript
+tsconfig.json

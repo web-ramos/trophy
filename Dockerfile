@@ -1,24 +1,32 @@
-FROM node:18-alpine
+# Use a lightweight Node.js image based on Alpine Linux
+FROM node:20-alpine
 
-# Create the directory on the node image
-# where our Next.js app will live
-RUN mkdir -p /app
+# Create the application directory and set the correct ownership
+RUN mkdir -p /home/node/app && chown -R node:node /home/node/app
 
-# Set /app as the working directory
-WORKDIR /app
+# Set the working directory
+WORKDIR /home/node/app
 
-# Copy package.json and package-lock.json
-# to the /app working directory
-COPY package*.json /app
+# Install PM2 globally for process management
+RUN npm install --global pm2
 
-# Install dependencies in /app
-RUN yarn install
+# Copy package.json and package-lock.json into the working directory
+COPY --chown=node:node package*.json ./
 
-# Copy the rest of our Next.js folder into /app
-COPY . /app
+# Install dependencies, excluding devDependencies
+RUN npm install --omit=dev
 
-# Ensure port 3000 is accessible to our system
+# Copy all application files into the working directory
+COPY --chown=node:node . .
+
+# Set the user to 'node' for the subsequent commands
+USER node
+
+# Build the application for production
+RUN npm run build
+
+# Expose port 3000 to make the application accessible
 EXPOSE 3000
 
-# Run yarn dev, as we would via the command line
-CMD ["yarn", "dev"]
+# Use PM2 to start the application in production mode
+CMD ["pm2-runtime", "npm", "--", "start"]
