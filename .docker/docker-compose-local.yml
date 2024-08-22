@@ -1,0 +1,35 @@
+version: '3.5'
+
+services:
+  trophy_nextjs:
+    build:
+      context: ../
+      dockerfile: ./.docker/node/Dockerfile
+      args:
+        USER_ID: ${USER_ID}
+        GROUP_ID: ${GROUP_ID}
+    restart: always
+    container_name: trophy_nextjs
+    volumes:
+      - /home/ramos/Projects/society/app_trophy/app/logs:/home/node/app/logs:rw
+      - /home/ramos/Projects/society/app_trophy/app/package-lock.json:/home/node/app/package-lock.json:rw
+    networks:
+      - sa_trophy
+
+  trophy_nginx:
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
+    restart: always
+    container_name: trophy_nginx
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.trophy_nginx.rule=Host(`moderntrophy.loc`)"
+      # - "traefik.http.routers.sa_awards.entrypoints=websecure"
+      # - "traefik.http.routers.sa_awards.tls=true"
+    networks:
+      - sa_trophy
+
+networks:
+  sa_trophy:
+    external: true

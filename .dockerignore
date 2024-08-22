@@ -19,6 +19,7 @@ yarn-error.log*
 .cache
 .next/cache
 .next/static
+.docker
 
 # IDE and editor configurations
 .vscode/
